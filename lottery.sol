@@ -36,6 +36,9 @@ contract lottery
          participants= new  address payable[](0);
         (bool sent,)=wnner.call{value:address(this).balance}("");
         require(sent,"transfer failed");
-       
+    }
+    function checkParticipants() external view returns (address payable[] memory)
+    {
+        return participants;
     }
 }
